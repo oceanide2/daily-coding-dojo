@@ -1,14 +1,16 @@
-function pickAndAddTwoNumbers(numbers) {
-  const results = new Set();
+const numberArray = (numbers) => (
+  numbers.map((number, index) => [
+    number,
+    [...numbers.slice(0, index), ...numbers.slice(index + 1)]
+  ])
+)
 
-  numbers.forEach((numberOne, index) => {
-    const seconds = [...numbers.slice(0, index), ...numbers.slice(index + 1)];
-
-    seconds.forEach(numberTwo => results.add(numberOne + numberTwo));
-  });
-
-  return [...results].sort((a, b) => a - b);
-}
+const pickAndAddTwoNumbers = (numbers) => [
+  ...new Set(
+    numberArray(numbers)
+      .map(([a, seconds]) => seconds.map(b => a + b))
+      .flat())
+].sort((a, b) => a - b)
 
 describe('pickTwoAndAddNumbers', () => {
   it('picks and adds two numbers from array and returns sorted number array #1', () => {
