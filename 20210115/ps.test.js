@@ -23,7 +23,7 @@ function findHighScoreUser(answers) {
   return indexOfAll(userScores, Math.max(...userScores)).map(el => el + 1);
 }
 
-describe('findHighGradeUserUser', () => {
+describe('findHighScoreUser', () => {
   it('returns the person who get most correct answer #1', () => {
     const answers = [1, 2, 3, 4, 5];
 
