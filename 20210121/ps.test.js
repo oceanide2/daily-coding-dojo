@@ -1,7 +1,9 @@
 function getMiddleCharacter(s) {
-  const i = Math.floor(s.length / 2);
+  const index = Math.floor(s.length / 2);
 
-  return s.length % 2 ? s[i] : s.slice(i - 1, i + 1);
+  const offset = s.length % 2 ? 0 : 1;
+
+  return s.slice(index - offset, index + 1);
 }
 
 describe('getMiddleCharacter', () => {
